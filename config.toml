@@ -1,19 +1,4 @@
-# ZeroDPI configuration file
-# All fields have sensible defaults and can be customized.
-# Field names are UPPER_CASE; values follow TOML syntax.
-
-# ---------------------------------------------------------------------------
-# Proxy Listener
-# ---------------------------------------------------------------------------
-
-# IP address the local TCP proxy listens on.
-# Use "0.0.0.0" to accept connections from all interfaces,
-# or "127.0.0.1" to restrict to the local machine only.
-LISTEN_HOST = "127.0.0.1"
-
-# TCP port the local proxy listens on.
-# Point your upstream VPN app (xray-core, sing-box, v2ray, etc.) here
-# instead of pointing it directly at your VPN server.
+LISTEN_HOST = 127.0.0.1
 LISTEN_PORT = 40443
 
 # ---------------------------------------------------------------------------
