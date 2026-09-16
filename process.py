@@ -1,15 +1,23 @@
 import urllib.request
 import urllib.parse
 
-url = "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt"
+urls = [
+    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt",
+    "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.txt",
+]
 out = "config.txt"
 
-with urllib.request.urlopen(url) as r:
-    content = r.read().decode("utf-8")
+lines = []
+for url in urls:
+    try:
+        with urllib.request.urlopen(url) as r:
+            lines += r.read().decode("utf-8").splitlines()
+    except Exception:
+        pass
 
 result = []
 
-for line in content.splitlines():
+for line in lines:
     line = line.strip()
     if not line.startswith(("vless://", "trojan://")):
         continue
