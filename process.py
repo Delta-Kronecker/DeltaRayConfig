@@ -16,13 +16,14 @@ for url in urls:
         pass
 
 result = []
+i = 1
 
 for line in lines:
     line = line.strip()
     if not line.startswith(("vless://", "trojan://")):
         continue
 
-    main, _, tag = line.partition("#")
+    main, _, _ = line.partition("#")
     proto, _, rest = main.partition("://")
     user, _, hp = rest.partition("@")
     _, _, query = hp.partition("?")
@@ -35,10 +36,10 @@ for line in lines:
     new = f"{proto}://{user}@127.0.0.1:40443"
     if query:
         new += f"?{query}"
-    if tag:
-        new += f"#{tag}"
+    new += f"#{i}"
 
     result.append(new)
+    i += 1
 
 with open(out, "w", encoding="utf-8") as f:
     f.write("\n".join(result))
