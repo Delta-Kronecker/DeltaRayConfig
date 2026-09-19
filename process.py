@@ -3,7 +3,7 @@ import urllib.parse
 
 urls = [
     "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt",
-    "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.tx",
+    "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.txt",
 ]
 out = "config.txt"
 
