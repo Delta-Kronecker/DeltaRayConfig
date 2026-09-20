@@ -437,7 +437,7 @@ BYPASS_METHOD = ["tls_frag"]
 # Increase this on very high-latency links or slow systems if otherwise valid
 # connections time out during startup.  Lower values fail faster when the
 # bypass cannot complete.  Must be at least 1.
-BYPASS_TIMEOUT_SECS = 20
+BYPASS_TIMEOUT_SECS = 5
 
 # Maximum lifetime (in seconds) for an established relay before ZeroDPI closes
 # it and lets the upstream VPN client reconnect. This is useful for protocols
@@ -965,7 +965,7 @@ TLS_FRAG_PACKETS = "1-3"
 # overhead. If this field is omitted, ZeroDPI uses the default range below.
 #
 # Must be >= 1.  Default: "100-200".
-TLS_FRAG_LENGTH = "100-200"
+TLS_FRAG_LENGTH = "25-105"
 
 # Delay between fragment chunks, in milliseconds.
 #
@@ -978,7 +978,7 @@ TLS_FRAG_LENGTH = "100-200"
 # after the last chunk.
 #
 # Must be >= 0.  Default: "10-20".
-TLS_FRAG_INTERVAL_MS = "5-10"
+TLS_FRAG_INTERVAL_MS = "1"
 
 # ---------------------------------------------------------------------------
 # tls_padding method parameters
