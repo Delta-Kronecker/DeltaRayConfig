@@ -2,8 +2,8 @@ import urllib.request
 import urllib.parse
 
 urls = [
-    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.tt",
-    "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.txt",
+    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt",
+    "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.tt",
     "https://github.com/Delta-Kronecker/V2ray-Config/raw/refs/heads/main/config/patt/all.tx",
 ]
 out = "config.txt"
