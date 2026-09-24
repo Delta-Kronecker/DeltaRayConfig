@@ -2,7 +2,8 @@ import urllib.request
 import urllib.parse
 
 urls = [
-    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt",
+    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.tt",
+    "https://github.com/Delta-Kronecker/V2ray-Config/raw/refs/heads/main/config/patt/all.txt", 
     "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.tt",
 ]
 out = "config.txt"
@@ -28,14 +29,27 @@ for line in lines:
     user, _, hp = rest.partition("@")
     _, _, query = hp.partition("?")
 
-    if query:
-        params = urllib.parse.parse_qsl(query, keep_blank_values=True)
-        params = [(k, v) for k, v in params if k not in ("cs", "fm")]
-        query = urllib.parse.urlencode(params)
+    if not query:
+        continue
 
-    new = f"{proto}://{user}@127.0.0.1:40443"
-    if query:
-        new += f"?{query}"
+    params = urllib.parse.parse_qsl(query, keep_blank_values=True)
+    d = dict(params)
+    if d.get("security") != "tls":
+        continue
+
+    new_params = []
+    for k, v in params:
+        if k == "fp":
+            new_params.append((k, "chrome"))
+        else:
+            new_params.append((k, v))
+
+    if "fp" not in d:
+        new_params.append(("fp", "chrome"))
+
+    new_query = urllib.parse.urlencode(new_params)
+
+    new = f"{proto}://{user}@127.0.0.1:40443?{new_query}"
     new += f"#{i}"
 
     result.append(new)
