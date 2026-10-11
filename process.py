@@ -2,9 +2,7 @@ import urllib.request
 import urllib.parse
 
 urls = [
-    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt",
-    "https://github.com/Delta-Kronecker/V2ray-Config/raw/refs/heads/main/config/patt/all.tt", 
-    "https://github.com/Delta-Kronecker/DeltaRayConfig/raw/refs/heads/main/tested.tt",
+    "https://raw.githubusercontent.com/patterniha/Free-Configs/main/configs.txt"
 ]
 out = "config.txt"
 
@@ -50,7 +48,7 @@ for line in lines:
     new_query = urllib.parse.urlencode(new_params)
 
     new = f"{proto}://{user}@127.0.0.1:40443?{new_query}"
-    new += f"#{i}"
+    new += f"#@DeltaKroneckerGithub"
 
     result.append(new)
     i += 1
